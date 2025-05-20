@@ -35,11 +35,12 @@ jobs:
     - name: Run tests with Maven
       run: mvn test
 
-    - name: Save build state
-      run: echo "build_status=success" >> $GITHUB_STATE
+    - name: Save state
+      run: echo "{name}={value}" >> $GITHUB_STATE
 
-    - name: Set build output
-      run: echo "build_status=success" >> $GITHUB_OUTPUT
+    - name: Set output
+      run: echo "{name}={value}" >> $GITHUB_OUTPUT
+
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
